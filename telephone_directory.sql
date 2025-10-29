@@ -1,0 +1,21 @@
+
+
+CREATE DATABASE telephone;
+
+
+CREATE TABLE users (
+  uid INT AUTO_INCREMENT PRIMARY KEY,
+  uname VARCHAR(50) UNIQUE NOT NULL,
+  password VARCHAR(50) NOT NULL
+);
+
+
+
+CREATE TABLE directory (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  uid INT NOT NULL,
+  contact_name VARCHAR(50) NOT NULL,
+  contact_number VARCHAR(20) NOT NULL,
+  CONSTRAINT fk_user FOREIGN KEY (uid)
+    REFERENCES users(uid)
+);
